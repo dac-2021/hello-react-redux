@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 
 const initialState = {
-  counter: 100,
+  counter: 500,
   title: "Project React",
   city: "mumbai",
 };

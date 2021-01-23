@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import store from "./redux/Store";
+import store from "./redux/GlobalStore";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
