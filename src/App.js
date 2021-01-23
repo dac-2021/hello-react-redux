@@ -1,5 +1,5 @@
 import "./App.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function App() {
   // Accessing the Store State
@@ -27,21 +27,37 @@ function ChildA() {
 
 function ChildB() {
   const counter = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
 
   return (
     <div>
-      <div>Child B {counter}</div>
+      <div>
+        Child B {counter}
+        <button onClick={(e) => dispatch({ type: "INC" })}>
+          INCREMENT
+        </button>
+      </div>
       <ChildC />
     </div>
   );
 }
 
+// Child C will dispatch the action.
 function ChildC() {
   const counter = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
 
   return (
     <div>
-      <div>Child C {counter}</div>
+      <div>
+        Child C {counter}
+        <button onClick={(e) => dispatch({ type: "INC" })}>
+          INCREMENT
+        </button>
+        <button onClick={(e) => dispatch({ type: "DEC" })}>
+          DECREMENT
+        </button>
+      </div>
 
       <ChildD />
     </div>
