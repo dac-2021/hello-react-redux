@@ -23,9 +23,14 @@ function ChildA(props) {
 }
 
 function ChildB(props) {
+  const [counter, setCounter] = useState(props.counter);
+
   return (
     <div>
-      <div>Child B {props.counter}</div>
+      <div>
+        Child B {counter}
+        <button onClick={(e) => setCounter(counter + 100)}>Update</button>
+      </div>
       <ChildC counter={props.counter} />
     </div>
   );
