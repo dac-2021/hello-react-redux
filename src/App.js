@@ -32,10 +32,16 @@ function ChildB(props) {
 }
 
 function ChildC(props) {
+  const [counter, setCounter] = useState(props.counter);
+
   return (
     <div>
-      <div>Child C {props.counter}</div>
-      <ChildD counter={props.counter} />
+      <div>
+        Child C is stateful now {counter}{" "}
+        <button onClick={(e) => setCounter(counter + 100)}>Update</button>
+      </div>
+
+      <ChildD counter={counter} />
     </div>
   );
 }
