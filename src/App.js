@@ -49,11 +49,14 @@ function ChildC() {
 }
 
 function ChildD() {
+  const rdState = useSelector((state) => state);
   const counter = useSelector((state) => state.counter);
 
   return (
     <div>
-      <div>Child D {counter}</div>
+      <div>
+        Child D {counter} {rdState.title} {rdState.city}
+      </div>
     </div>
   );
 }

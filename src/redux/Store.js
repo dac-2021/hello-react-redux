@@ -3,6 +3,7 @@ import { createStore } from "redux";
 const initialState = {
   counter: 100,
   title: "Project React",
+  city: "mumbai",
 };
 
 /**
