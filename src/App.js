@@ -1,60 +1,59 @@
 import "./App.css";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [counter, setCounter] = useState(100);
-  const [title, setTitle] = useState("Project Family Man.");
+  // Accessing the Store State
+  const rdState = useSelector((state) => state);
+  const counter = useSelector((state) => state.counter);
 
   return (
     <div>
       <div>Parent Component {counter}</div>
-      <ChildA counter={counter} />
+      <ChildA />
     </div>
   );
 }
 
-function ChildA(props) {
+function ChildA() {
+  const counter = useSelector((state) => state.counter);
+
   return (
     <div>
-      <div>Child A {props.counter}</div>
-      <ChildB counter={props.counter} />
+      <div>Child A {counter}</div>
+      <ChildB />
     </div>
   );
 }
 
-function ChildB(props) {
-  const [counter, setCounter] = useState(props.counter);
+function ChildB() {
+  const counter = useSelector((state) => state.counter);
 
   return (
     <div>
-      <div>
-        Child B {counter}
-        <button onClick={(e) => setCounter(counter + 100)}>Update</button>
-      </div>
-      <ChildC counter={props.counter} />
+      <div>Child B {counter}</div>
+      <ChildC />
     </div>
   );
 }
 
-function ChildC(props) {
-  const [counter, setCounter] = useState(props.counter);
+function ChildC() {
+  const counter = useSelector((state) => state.counter);
 
   return (
     <div>
-      <div>
-        Child C is stateful now {counter}{" "}
-        <button onClick={(e) => setCounter(counter + 100)}>Update</button>
-      </div>
+      <div>Child C {counter}</div>
 
-      <ChildD counter={counter} />
+      <ChildD />
     </div>
   );
 }
 
-function ChildD(props) {
+function ChildD() {
+  const counter = useSelector((state) => state.counter);
+
   return (
     <div>
-      <div>Child D {props.counter}</div>
+      <div>Child D {counter}</div>
     </div>
   );
 }
